@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_appointments"
         android:name="com.example.doctorappointment.fragments.AppointmentsFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_appointments"
         tools:layout="@layout/fragment_appointments" />
 
     <fragment
@@ -22,4 +22,10 @@
         android:name="com.example.doctorappointment.fragments.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.doctorappointment.fragments.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

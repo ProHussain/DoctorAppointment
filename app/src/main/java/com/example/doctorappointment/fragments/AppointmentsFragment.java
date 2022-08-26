@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.doctorappointment.adapter.AppointmentsAdapter;
 import com.example.doctorappointment.databinding.FragmentAppointmentsBinding;
 
 public class AppointmentsFragment extends Fragment {
@@ -17,8 +18,9 @@ public class AppointmentsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentAppointmentsBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-        return root;
+        AppointmentsAdapter adapter = new AppointmentsAdapter();
+        binding.rvAppointments.setAdapter(adapter);
+        return binding.getRoot();
     }
 
     @Override

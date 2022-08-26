@@ -8,7 +8,7 @@
     android:padding="16dp">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgDr"
         android:layout_width="64dp"
         android:layout_height="72dp"
         android:src="@drawable/dr"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textDrName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,19 +25,19 @@
         android:textColor="@color/primary"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintBottom_toTopOf="@+id/textDrCategory"
+        app:layout_constraintStart_toEndOf="@+id/imgDr"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:layout_marginTop="4dp"
-        android:id="@+id/textView7"
+        android:id="@+id/textDrCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Heart Surgeon - Flower Hospitals"
         android:textColor="@color/primary_65"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintStart_toStartOf="@+id/textDrName"
+        app:layout_constraintTop_toBottomOf="@+id/textDrName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

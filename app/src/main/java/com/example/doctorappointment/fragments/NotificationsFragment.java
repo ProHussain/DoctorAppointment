@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.doctorappointment.adapter.AppointmentsAdapter;
+import com.example.doctorappointment.adapter.NotificationAdapter;
 import com.example.doctorappointment.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
@@ -17,8 +19,9 @@ public class NotificationsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-        return root;
+        NotificationAdapter adapter = new NotificationAdapter();
+        binding.rvNotifications.setAdapter(adapter);
+        return binding.getRoot();
     }
 
     @Override
