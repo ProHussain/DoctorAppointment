@@ -18,7 +18,7 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView"
+            android:id="@+id/profileImage"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:src="@mipmap/ic_launcher"
@@ -124,8 +124,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:ems="10"
-                android:inputType="numberPassword"
-                android:text="password"
+                android:inputType="textPassword"
+                android:hint="*****"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView5" />

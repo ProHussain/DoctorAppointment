@@ -7,7 +7,7 @@
     tools:context=".activities.DoctorDetailsActivity">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/coverImage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
@@ -25,12 +25,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5">
+        app:layout_constraintTop_toBottomOf="@+id/coverImage">
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/drImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/primary"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/pro_pic"
@@ -38,47 +40,47 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/drPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            app:layout_constraintBottom_toBottomOf="@+id/drImage"
+            app:layout_constraintStart_toEndOf="@+id/drImage"
+            app:layout_constraintTop_toBottomOf="@+id/drCatNdClinic"
             app:srcCompat="@drawable/call" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/drCatNdClinic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Heart Surgeon - Flower Hospitals"
             android:textColor="@color/primary_65"
-            app:layout_constraintBottom_toTopOf="@+id/imageView7"
-            app:layout_constraintStart_toStartOf="@+id/imageView7"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintBottom_toTopOf="@+id/drPhone"
+            app:layout_constraintStart_toStartOf="@+id/drPhone"
+            app:layout_constraintTop_toBottomOf="@+id/drName" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/drName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dr. Stella Kane"
             android:textColor="@color/primary"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView8"
-            app:layout_constraintStart_toStartOf="@+id/textView8"
-            app:layout_constraintTop_toTopOf="@+id/imageView6"
+            app:layout_constraintBottom_toTopOf="@+id/drCatNdClinic"
+            app:layout_constraintStart_toStartOf="@+id/drCatNdClinic"
+            app:layout_constraintTop_toTopOf="@+id/drImage"
             app:layout_constraintVertical_bias="1.0"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/drWhatsApp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-            app:layout_constraintStart_toEndOf="@+id/imageView7"
-            app:layout_constraintTop_toTopOf="@+id/imageView7"
+            app:layout_constraintBottom_toBottomOf="@+id/drPhone"
+            app:layout_constraintStart_toEndOf="@+id/drPhone"
+            app:layout_constraintTop_toTopOf="@+id/drPhone"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/message" />
 
@@ -86,27 +88,41 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
             android:text="About Doctor"
             android:textColor="@color/primary"
-            android:textStyle="bold"
             android:textSize="16sp"
-            android:layout_marginTop="36dp"
-            app:layout_constraintStart_toStartOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/drImage"
+            app:layout_constraintTop_toBottomOf="@+id/drImage" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/drAbout"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             android:lineSpacingExtra="8dp"
             android:text="Dr. Stella is the top most heart surgeon in Flower Hospital. She has done over 100 successful sugeries within past 3 years. She has achieved several awards for her wonderful contribution in her own field. She’s available for private consultation for given schedules."
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnAppointment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <Button
+            android:id="@+id/btnAppointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Appointment"
+            android:textColor="@color/white"
+            android:paddingHorizontal="24dp"
+            android:background="@drawable/btn_bg_red_round"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
