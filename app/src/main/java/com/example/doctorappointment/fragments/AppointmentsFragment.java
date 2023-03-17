@@ -28,6 +28,7 @@ public class AppointmentsFragment extends Fragment {
     private AppointmentsAdapter adapter;
     private List<AppointmentModel> appointmentList;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentAppointmentsBinding.inflate(inflater, container, false);

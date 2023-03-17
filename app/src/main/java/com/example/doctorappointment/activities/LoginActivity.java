@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             Utils.ShowToast(LoginActivity.this,"Login successfully");
                             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            finishAffinity();
                         }
 
                         @Override

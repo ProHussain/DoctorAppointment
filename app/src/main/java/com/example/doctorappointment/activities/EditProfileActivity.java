@@ -76,8 +76,7 @@ public class EditProfileActivity extends AppCompatActivity implements IPickResul
             public void onClick(View view) {
                 if (ContextCompat.checkSelfPermission(EditProfileActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
                     ActivityCompat.requestPermissions(EditProfileActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PermissionReqCode);
-                }
-                {
+                } else {
                     PickProfile();
                 }
 

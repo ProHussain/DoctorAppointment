@@ -31,8 +31,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public void onBindViewHolder(@NonNull NotificationAdapter.ViewHolder holder, int position) {
         NotificationModel model = notificationModelList.get(position);
-        holder.binding.txtSender.setText(model.getSenderName());
-        holder.binding.txtMsg.setText(model.getMsg());
+        holder.binding.title.setText(model.getTitle());
+        holder.binding.message.setText(model.getDescription());
     }
 
     @Override

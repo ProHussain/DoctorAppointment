@@ -33,50 +33,39 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child(Constants.userDataBase).child(Constants.userAccountsDataBase);
-            reference.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    UserModel model = snapshot.getValue(UserModel.class);
-                    assert model != null;
-                    Constants.user = model;
-                    startActivity(new Intent(SplashActivity.this, HomeActivity.class));
-                    finish();
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    FirebaseAuth.getInstance().signOut();
-                    Utils.ShowToast(SplashActivity.this,"No login details found");
-                }
-            });
-
-/*            reference.child(user.getUid()).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    UserModel model = snapshot.getValue(UserModel.class);
-                    assert model != null;
-                    Constants.user = model;
-                    startActivity(new Intent(SplashActivity.this, HomeActivity.class));
-                    finish();
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    FirebaseAuth.getInstance().signOut();
-                    Utils.ShowToast(SplashActivity.this,"No login details found");
-                }
-            });
-
- */
-        }
         btnGetStarted = findViewById(R.id.btnGetStarted);
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SplashActivity.this, SignUpActivity.class));
-                finish();
+                Utils.ShowProgressDialog(SplashActivity.this,"Please wait....");
+                if (user != null) {
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child(Constants.userDataBase).child(Constants.userAccountsDataBase);
+                    reference.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            Utils.DismissProgressDialog();
+                            UserModel model = snapshot.getValue(UserModel.class);
+                            assert model != null;
+                            Constants.user = model;
+                            startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+                            finish();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            Utils.DismissProgressDialog();
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(SplashActivity.this, SignUpActivity.class));
+                            finish();
+                            Utils.ShowToast(SplashActivity.this, "No login details found");
+                        }
+                    });
+                } else {
+                    Utils.DismissProgressDialog();
+                    startActivity(new Intent(SplashActivity.this, SignUpActivity.class));
+                    finish();
+                }
             }
         });
     }

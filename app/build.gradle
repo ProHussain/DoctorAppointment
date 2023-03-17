@@ -41,6 +41,7 @@ dependencies {
     //Navigation
     implementation 'androidx.navigation:navigation-fragment:2.5.2'
     implementation 'androidx.navigation:navigation-ui:2.5.2'
+    implementation 'com.google.firebase:firebase-messaging:23.1.0'
 
     //Testing
     testImplementation 'junit:junit:4.13.2'

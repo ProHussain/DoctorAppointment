@@ -58,6 +58,7 @@
             android:layout_height="64dp"
             android:layout_gravity="center"
             android:layout_margin="4dp"
-            android:src="@drawable/search" />
+            android:src="@drawable/search"
+            app:tint="@color/white" />
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

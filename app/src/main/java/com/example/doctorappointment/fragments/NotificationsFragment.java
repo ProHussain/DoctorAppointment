@@ -41,8 +41,8 @@ public class NotificationsFragment extends Fragment {
     }
 
     private void LoadNotifications() {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child(Constants.userDataBase).child("Notifications").child(Constants.user.getId()).addValueEventListener(new ValueEventListener() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Notifications");
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
